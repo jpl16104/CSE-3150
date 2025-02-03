@@ -58,5 +58,3 @@ The program includes automated tests using the [doctest](https://github.com/onqt
 
 - **Test:**  
   The integrated doctest tests run automatically before the interactive prompt.
-
-Enjoy using the Prefix Sums Checker!
