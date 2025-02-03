@@ -20,16 +20,17 @@ The program includes automated tests using the [doctest](https://github.com/onqt
 
 1. Open a terminal in the directory containing `prefix_sums.cpp`.
 2. Compile the program using:
-   (g++ -std=c++11 prefix_sums.cpp -o prefix_sums)
-
-This compiles the code with C++11 support and produces an executable named `prefix_sums`.
-
+   ```bash
+   g++ -std=c++17 prefix_sums.cpp -o prefix_sums
+   ```
 ---
 
 ## How to Run and Test
 
 1. Run the compiled program by executing:
-   (./prefix_sums)
+   ```bash
+   ./prefix_sums
+   ```
 
 2. **What Happens:**
    - **Automated Tests:**  
@@ -40,20 +41,20 @@ This compiles the code with C++11 support and produces an executable named `pref
      - The array elements (each must be either +1 or -1).
 
    The program then displays whether the prefix sums are non-negative and/or non-positive.
-
-3. **Additional Options:**
-   - To view available doctest command-line options, run:
-     (./prefix_sums --help)
-
 ---
 
 ## Summary
 
 - **Compile:**  
-  (g++ -std=c++11 prefix_sums.cpp -o prefix_sums)
+  (
+  ```bash
+  g++ -std=c++11 prefix_sums.cpp -o prefix_sums
+  ```
 
 - **Run:**  
-  (./prefix_sums)
+  ```bash
+  ./prefix_sums
+  ```
 
 - **Test:**  
   The integrated doctest tests run automatically before the interactive prompt.
