@@ -1,4 +1,4 @@
-# Jean Code Lab Week X: Linked List with Move Semantics
+# Jean Code Lab Week 4: Linked List with Move Semantics
 
 This lab exercise extends a basic singly linked list implementation by adding move semantics to the `Node` struct. The new features include:
 - **Move Constructor:** Transfers ownership of the node’s data and its subsequent chain from one node to another.
