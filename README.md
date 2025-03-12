@@ -1,10 +1,10 @@
-# Jean Lara Lab Week 1: Prefix Sums Checker
+# Jean Code Lab Week X: Linked List with Move Semantics
 
-This program validates whether the prefix sums of an array (composed solely of +1 and -1 values) meet two conditions:
-- **Non-negative:** The cumulative (prefix) sum never falls below 0.
-- **Non-positive:** The cumulative (prefix) sum never rises above 0.
+This lab exercise extends a basic singly linked list implementation by adding move semantics to the `Node` struct. The new features include:
+- **Move Constructor:** Transfers ownership of the node’s data and its subsequent chain from one node to another.
+- **Move Assignment Operator:** Frees the existing chain and then transfers ownership from another node, ensuring proper resource management.
 
-The program includes automated tests using the [doctest](https://github.com/onqtam/doctest) framework and then enters an interactive mode.
+The program includes automated tests using the [doctest](https://github.com/onqtam/doctest) framework. After the tests pass, the program enters an interactive mode where you can create, display, and modify a linked list.
 
 ---
 
@@ -16,45 +16,34 @@ The program includes automated tests using the [doctest](https://github.com/onqt
 
 ---
 
-## How to Compile
+## Files
 
-1. Open a terminal in the directory containing `prefix_sums.cpp`.
-2. Compile the program using:
-   ```bash
-   g++ -std=c++17 prefix_sums.cpp -o prefix_sums
-   ```
+- **ll.h:** Contains the declarations for the `Node` struct (including the move constructor and move assignment operator) and linked list functions.
+- **ll.cpp:** Implements the `Node` functionalities and linked list functions.
+- **main.cpp:** Contains the `main()` function, which runs doctest unit tests and provides an interactive mode for linked list operations.
+
 ---
 
+## How to Compile
+
+1. Open a terminal in the directory containing `main.cpp`, `ll.cpp`, and `ll.h`.
+2. Compile the program using:
+   ```bash
+   g++ -std=c++17 main.cpp ll.cpp -o linked_list_lab
+   ```
 ## How to Run and Test
 
 1. Run the compiled program by executing:
-   ```bash
-   ./prefix_sums
-   ```
+```bash
+./ll
+```
+2. What Happens:
 
-2. **What Happens:**
-   - **Automated Tests:**  
-     The program first runs all the doctest unit tests. The test results are printed to the terminal.
-   - **Interactive Mode:**  
-     After the tests, you will be prompted to enter:
-     - The number of elements for the array.
-     - The array elements (each must be either +1 or -1).
-
-   The program then displays whether the prefix sums are non-negative and/or non-positive.
----
-
-## Summary
-
-- **Compile:**  
-  (
-  ```bash
-  g++ -std=c++11 prefix_sums.cpp -o prefix_sums
-  ```
-
-- **Run:**  
-  ```bash
-  ./prefix_sums
-  ```
-
-- **Test:**  
-  The integrated doctest tests run automatically before the interactive prompt.
+- Automated Tests:
+  The program first runs all the doctest unit tests and prints the results to the terminal.
+- Interactive Mode:
+    After the tests, you will be prompted to:
+      - Specify the number of elements for the linked list.
+      - Enter the integer elements to create the list.
+      - Optionally, choose a position to delete a node.
+    - The program then prints the linked list before and after deletion operations.
