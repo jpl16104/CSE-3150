@@ -1,7 +1,6 @@
-// TimedSharedPtr_full_test.cpp
 
-#define DOCTEST_CONFIG_IMPLEMENT    // emit doctest’s implementation
-#define DOCTEST_CONFIG_RUNNER      // omit doctest’s own main()
+#define DOCTEST_CONFIG_IMPLEMENT   
+#define DOCTEST_CONFIG_RUNNER      
 #include "doctest.h"
 
 #include <iostream>
@@ -17,9 +16,6 @@ using Clock        = chrono::high_resolution_clock;
 using clockTime    = chrono::time_point<Clock>;
 using milliSeconds = chrono::milliseconds;
 
-// ————————————————————————————————————————————————————————————————
-// Control block for each managed pointer
-// ————————————————————————————————————————————————————————————————
 struct ControlTimedSharedPtr {
     void*        ptr;
     long         myUseCount;
@@ -46,9 +42,7 @@ struct ControlTimedSharedPtr {
     }
 };
 
-// ————————————————————————————————————————————————————————————————
-// TimedSharedPtr<T>
-// ————————————————————————————————————————————————————————————————
+
 template<typename T>
 class TimedSharedPtr {
 private:
@@ -150,9 +144,6 @@ struct Node {
     TimedSharedPtr<Node> next;
 };
 
-// ————————————————————————————————————————————————————————————————
-// Custom main: first your smoke tests, then doctest
-// ————————————————————————————————————————————————————————————————
 int main(int argc, char** argv) {
     // — your original Node test —
     {
@@ -171,7 +162,6 @@ int main(int argc, char** argv) {
         cout << "-----------\n";
     }
 
-    // — your simple int test —
     {
         TimedSharedPtr<int> p(new int(42));
         cout << p.get() << "\n";
@@ -181,14 +171,11 @@ int main(int argc, char** argv) {
         cout << "q.use_count(): " << q.use_count() << "\n";
     }
 
-    // — now run all the doctest cases —
     doctest::Context ctx;
     ctx.applyCommandLine(argc, argv);
     return ctx.run();
 }
 
-// ————————————————————————————————————————————————————————————————
-// your existing TEST_CASEs go here unchanged…
 TEST_CASE("default constructed is null/expired") {
     TimedSharedPtr<int> p;
     CHECK(p.use_count()==0);
@@ -196,4 +183,3 @@ TEST_CASE("default constructed is null/expired") {
     CHECK_FALSE(p);
     CHECK(p.get()==nullptr);
 }
-// … etc …
